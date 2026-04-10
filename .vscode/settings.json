@@ -11,6 +11,6 @@
         "JavaLibs/lib/javafx-swt.jar"
     ],
     "java.project.sourcePaths": [
-        "Java_SimpleNote/src"
+        "SimpleNote/src"
     ]
 }
