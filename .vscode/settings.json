@@ -1,0 +1,16 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "JavaLibs/lib/javafx.base.jar",
+        "JavaLibs/lib/javafx.controls.jar",
+        "JavaLibs/lib/javafx.fxml.jar",
+        "JavaLibs/lib/javafx.graphics.jar",
+        "JavaLibs/lib/javafx.media.jar",
+        "JavaLibs/lib/javafx.swing.jar",
+        "JavaLibs/lib/javafx.web.jar",
+        "JavaLibs/lib/javafx-swt.jar"
+    ],
+    "java.project.sourcePaths": [
+        "Java_SimpleNote/src"
+    ]
+}
