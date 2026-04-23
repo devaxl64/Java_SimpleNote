@@ -1,0 +1,13 @@
+{
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.base.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.controls.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.fxml.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.graphics.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.media.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.swing.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx.web.jar",
+        "c:\\Users\\Administrador\\Documents\\GitHub\\Java_SimpleNote\\JavaLibs\\lib\\javafx-swt.jar"
+    ]
+}
