@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.Priority?>
+<BorderPane prefWidth="390.0" prefHeight="490.0"
+            xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="NoteEditorController" stylesheets="@styles.css" styleClass="pagina-editor" onKeyPressed="#teclaEditor">
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="9.0" styleClass="cabecalho-editor">
+            <children>
+                <Button fx:id="btnVoltar" text="←" onAction="#voltar" styleClass="botao-voltar" />
+                <TextField fx:id="txtTitulo" styleClass="titulo-editavel" HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnCor" text="" onAction="#abrirCores" styleClass="botao-cor"><tooltip><Tooltip text="Cor desta nota" /></tooltip></Button>
+            </children>
+        </HBox>
+    </top>
+    <center>
+        <TextArea fx:id="txtConteudo" wrapText="true" styleClass="editor-texto" />
+    </center>
+    <bottom><Label fx:id="lblEstado" text="" styleClass="estado-editor" /></bottom>
+</BorderPane>

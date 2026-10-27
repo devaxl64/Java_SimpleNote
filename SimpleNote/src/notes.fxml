@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.GridPane?>
+<StackPane fx:id="raiz" prefWidth="390.0" prefHeight="490.0"
+           xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="NotesController" stylesheets="@styles.css" styleClass="pagina" onKeyPressed="#teclaPagina">
+  <children>
+    <BorderPane>
+      <top>
+        <HBox alignment="CENTER_LEFT" spacing="7" styleClass="cabecalho">
+          <children>
+            <Button fx:id="btnMenu" text="☰" onAction="#alternarMenu" styleClass="botao-icone">
+              <tooltip><Tooltip text="Abrir menu" /></tooltip>
+            </Button>
+            <Label text="SimpleNote" styleClass="titulo-app" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnCorPadrao" text="" onAction="#abrirConfiguracoesCores" styleClass="botao-cor">
+              <tooltip><Tooltip text="Cor padrão das novas notas" /></tooltip>
+            </Button>
+            <Button fx:id="btnLayout" text="" onAction="#alternarLayout" styleClass="botao-icone" />
+            <Button fx:id="btnSincronizar" text="⟳" onAction="#sincronizarAgora" styleClass="botao-icone">
+              <tooltip><Tooltip text="Sincronizar agora" /></tooltip>
+            </Button>
+          </children>
+        </HBox>
+      </top>
+      <center>
+        <StackPane>
+          <children>
+            <VBox fx:id="telaNotas" spacing="0">
+              <children>
+                <MenuButton fx:id="btnOrdenacao" text="Ordenar por data de modificação ▾" maxWidth="Infinity" styleClass="ordenacao" />
+                <StackPane VBox.vgrow="ALWAYS">
+                  <children>
+                    <ListView fx:id="listaNotas" onKeyPressed="#teclaLista" styleClass="lista-notas" />
+                    <ScrollPane fx:id="painelGrade" visible="false" managed="false" fitToWidth="true" styleClass="painel-grade" hbarPolicy="NEVER">
+                      <content><GridPane fx:id="gradeNotas" hgap="12" vgap="12" styleClass="grade-notas" /></content>
+                    </ScrollPane>
+                  </children>
+                </StackPane>
+              </children>
+            </VBox>
+            <VBox fx:id="telaBusca" spacing="5" managed="false" visible="false" styleClass="tela-auxiliar">
+              <children>
+                <TextField fx:id="campoBusca" promptText="Localizar notas..." onKeyPressed="#teclaBusca" styleClass="campo-busca" />
+                <ListView fx:id="resultadosBusca" VBox.vgrow="ALWAYS" styleClass="lista-notas" />
+              </children>
+            </VBox>
+            <VBox fx:id="telaCalendario" spacing="9" managed="false" visible="false" styleClass="tela-auxiliar">
+              <children>
+                <HBox alignment="CENTER" spacing="8">
+                  <children>
+                    <Button text="‹" onAction="#mesAnterior" styleClass="botao-icone" />
+                    <Label fx:id="lblMes" text="" styleClass="mes-calendario" HBox.hgrow="ALWAYS" maxWidth="Infinity" alignment="CENTER" />
+                    <Button text="›" onAction="#mesSeguinte" styleClass="botao-icone" />
+                  </children>
+                </HBox>
+                <GridPane fx:id="gradeCalendario" hgap="3" vgap="3" styleClass="calendario" />
+                <Label fx:id="lblDia" text="Selecione uma data" styleClass="calendario-dia" />
+                <ListView fx:id="listaDia" VBox.vgrow="ALWAYS" styleClass="lista-notas" />
+              </children>
+            </VBox>
+          </children>
+        </StackPane>
+      </center>
+      <bottom>
+        <VBox spacing="0" styleClass="rodape-principal">
+          <children>
+            <HBox alignment="CENTER_RIGHT" styleClass="rodape-acoes">
+              <children>
+                <Label fx:id="lblEstado" text="" styleClass="erro-rodape" HBox.hgrow="ALWAYS" />
+                <Button fx:id="btnNova" text="+" onAction="#novaNota" styleClass="botao-nova-nota" />
+              </children>
+            </HBox>
+            <HBox spacing="2" alignment="CENTER" styleClass="barra-inferior">
+              <children>
+                <Button fx:id="btnNavNotas" text="Notas" onAction="#mostrarNotas" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="nav-item" />
+                <Button fx:id="btnNavCalendario" text="Calendário" onAction="#mostrarCalendario" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="nav-item" />
+                <Button fx:id="btnNavBuscar" text="Buscar" onAction="#mostrarBusca" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="nav-item" />
+                <Button fx:id="btnNavMais" text="Mais" onAction="#alternarMenu" HBox.hgrow="ALWAYS" maxWidth="Infinity" styleClass="nav-item" />
+              </children>
+            </HBox>
+          </children>
+        </VBox>
+      </bottom>
+    </BorderPane>
+    <Region fx:id="escurecedor" managed="false" visible="false" onMouseClicked="#fecharMenu" styleClass="fundo-menu" />
+    <VBox fx:id="menuLateral" managed="false" visible="false" StackPane.alignment="TOP_LEFT"
+          prefWidth="284" maxWidth="284" spacing="8" styleClass="menu-lateral">
+      <children>
+        <HBox alignment="CENTER_LEFT" spacing="10">
+          <children>
+            <Label text="SimpleNote" styleClass="titulo-app" />
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnFecharMenu" text="×" onAction="#fecharMenu" styleClass="botao-icone" />
+          </children>
+        </HBox>
+        <Button text="Todas as notas" onAction="#mostrarNotas" styleClass="item-menu" maxWidth="Infinity" />
+        <Button text="Buscar" onAction="#mostrarBusca" styleClass="item-menu" maxWidth="Infinity" />
+        <Button text="Calendário" onAction="#mostrarCalendario" styleClass="item-menu" maxWidth="Infinity" />
+        <Button text="Configurar cores" onAction="#abrirConfiguracoesCores" styleClass="item-menu" maxWidth="Infinity" />
+        <Button fx:id="btnTema" text="Tema: escuro" onAction="#alternarTema" styleClass="item-menu" maxWidth="Infinity" />
+        <Button text="Sincronizar" onAction="#sincronizarAgora" styleClass="item-menu" maxWidth="Infinity" />
+        <Region VBox.vgrow="ALWAYS" />
+        <Button text="Sobre o App" maxWidth="Infinity" onAction="#sobreOApp" styleClass="item-menu" />
+      </children>
+    </VBox>
+  </children>
+</StackPane>

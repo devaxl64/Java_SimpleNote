@@ -1,0 +1,33 @@
+# Compilação
+target/
+bin/
+**/bin/
+*.class
+
+# Bibliotecas antigas
+JavaLibs/
+
+# Configurações locais
+.vscode/
+**/.vscode/
+.idea/
+.settings/
+*.log
+
+# Credenciais
+.env
+.env.*
+**/database.properties
+
+# Bancos locais e backups
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.zip
+*.7z
+
+# Arquivos temporários
+*.tmp
+*~
+.DS_Store
